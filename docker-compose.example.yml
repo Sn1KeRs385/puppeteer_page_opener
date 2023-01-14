@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  puppeteer:
+    image: ghcr.io/puppeteer/puppeteer:19.5.1
+    volumes:
+      - ./server/:/home/pptruser/puppeteer
+    ports:
+      - "3000:3000"
+    cap_add:
+      - SYS_ADMIN
+    command: 'yarn --cwd puppeteer/ start'
